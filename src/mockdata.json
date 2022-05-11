@@ -1,0 +1,32 @@
+[
+        {
+            "CompanyName":"ABC Company",
+            "CompanyCode":"001",
+            "StartDate":"2020/10/26",
+            "EndDate":"2120/10/26",
+            "StockPrice":"2000",
+            "MinValue":"1000",
+            "MaxValue":"5000",
+            "AvgValue":"3000"
+        },
+        { 
+            "CompanyName":"DEF Company",
+            "CompanyCode":"002",
+            "StartDate":"2010/10/26",
+            "EndDate":"2110/10/26",
+            "StockPrice":"3000",
+            "MinValue":"3000",
+            "MaxValue":"5000",
+            "AvgValue":"9000"
+        },
+        {
+            "CompanyName":"GHK Company",
+            "CompanyCode":"003",
+            "StartDate":"2000/10/26",
+            "EndDate":"2100/10/26",
+            "StockPrice":"4000",
+            "MinValue":"5000",
+            "MaxValue":"10000",
+            "AvgValue":"7500"
+        }
+    ]

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render Home Component 1`] = `
+Array [
+  <div>
+    <div>
+      <Navbars />
+    </div>
+  </div>,
+]
+`;
