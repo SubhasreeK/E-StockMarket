@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import backgroundimg from '../../image/background.jpg';
-
-import { withRouter } from 'react-router-dom';
+import { NavLink,withRouter } from 'react-router-dom';
 
 
 class Login extends Component {
@@ -137,6 +136,9 @@ class Login extends Component {
         </Button>
         <div>
         <p className="validationmsg">{this.state.loginStatus}</p>
+        </div>
+        <div>
+        <NavLink className="links" activeClassName="is-active" exact to='/Signup'>Sign Up?Create an account</NavLink>
         </div>
       </Form>
       

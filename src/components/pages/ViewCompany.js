@@ -52,7 +52,7 @@ const ViewCompany = props =>{
         <div>
             {currentCompany?(
                 <div className="edit-form">
-                    <h4>View Company </h4>
+                    <h5>Edit Company Details</h5>
                     <form>
                        
                         <div className="form-group">
@@ -77,6 +77,30 @@ const ViewCompany = props =>{
                             type="text"
                             className="form-control"
                             id="stockprice" name="stockprice" value={currentCompany.stockprice} 
+                            onChange={handleInputChange}></input>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="minvalue">Minimum Value</label>
+                            <input
+                            type="text"
+                            className="form-control"
+                            id="minvalue" name="minvalue" value={currentCompany.minvalue} 
+                            onChange={handleInputChange}></input>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="maxvalue">Maxmium Value</label>
+                            <input
+                            type="text"
+                            className="form-control"
+                            id="maxvalue" name="maxvalue" value={currentCompany.maxvalue} 
+                            onChange={handleInputChange}></input>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="avgvalue">Average Value</label>
+                            <input
+                            type="text"
+                            className="form-control"
+                            id="avgvalue" name="avgvalue" value={currentCompany.avgvalue} 
                             onChange={handleInputChange}></input>
                         </div>
                     </form>

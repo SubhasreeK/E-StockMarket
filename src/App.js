@@ -6,6 +6,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "@fortawesome/fontawesome-free/js/all.js";
 import Headers from './components/Header';
 import Login from './components/Login/Login';
+import Signup from './components/Login/SignUpContainer';
 import Home from './components/Home';
 import AutoLogoutTimer from './AutoLogout';
 
@@ -18,6 +19,7 @@ class App extends Component{
      <Headers/>
       <Switch>
         <Route exact path='/'><Login/></Route>
+        <Route exact path='/Signup'><Signup/></Route>
         <Route path='/home'><AutoLogoutTimer ComposedClass={Home} /></Route>
       </Switch>
       

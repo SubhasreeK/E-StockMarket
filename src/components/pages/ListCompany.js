@@ -134,7 +134,7 @@ import axios from 'axios';
                  onChange={onChangesSearchCompany}/>
 
                  <div className='input-group-append'>
-                     <button className='btn btn-outline-secondary' type='button' onClick={findbyname}>Search</button>
+                     <button className='btn btn-outline-primary' type='button' onClick={findbyname}>Search</button>
                  </div>
              </div>
          </div>
