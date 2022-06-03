@@ -3,6 +3,8 @@ import {useTable} from 'react-table';
 import {useHistory} from 'react-router-dom';
 import CompanyService from '../../services/ServiceCall';
 import {Row,Col} from 'react-bootstrap';
+import {confirmAlert} from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import axios from 'axios';
  const ListCompany =(props)=>{
      let history = useHistory();
@@ -51,18 +53,38 @@ import axios from 'axios';
         });
     };
     const openCompany = (rowIndex) => {
-        const id = companyRef.current[rowIndex].id;
+        const id = companyRef.current[rowIndex].companycode;
         //props.history.push("/viewcompany");
+        //Yet To Work on it
         history.push("/home/viewcompany");
       };
-    const deleteCompany = (rowIndex) => {
+    const deleteConfirm =(rowIndex)=>{
         const id = companyRef.current[rowIndex].companycode;
+        const name = companyRef.current[rowIndex].companyname;
+        console.log(id);
+        confirmAlert({
+            title:'Are you sure',
+            message:`Do you want to delete the ${name}?`,
+            buttons:[
+                {
+                    label:'Yes',
+                    onClick:()=> deleteCompany(id)
+                },
+                {
+                    label:'No'                }
+                
+            ]
+        })
+    }
+    const deleteCompany = (id) => {
+
+        //const id = companyRef.current[rowIndex].companycode;
         CompanyService.remove(id)
           .then((response) => {
             //props.history.push("/home");
             history.push("/home");
             let newCompany = [...companyRef.current];
-            newCompany.splice(rowIndex, 1);
+           // newCompany.splice(rowIndex, 1);
             setCompanies(newCompany);
           })
           .catch((e) => {
@@ -102,10 +124,10 @@ import axios from 'axios';
                 const rowIdx = props.row.id;
                 return(
                     <div>
-                        <span onClick={()=>openCompany(rowIdx)}>
+                        <span style={{marginRight:'10px'}} onClick={()=>openCompany(rowIdx)}>
                             <i className='far fa-edit action mr-2'></i>
                         </span>
-                        <span onClick={()=> deleteCompany(rowIdx)}>
+                        <span onClick={()=> deleteConfirm(rowIdx)}>
                             <i className='fas fa-trash action'></i>
                         </span>
                     </div>

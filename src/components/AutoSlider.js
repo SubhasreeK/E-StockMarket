@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 
 const colorss = ["#0088FE", "#00C49F", "#FFBB28"];
-const delay = 9000;
+const delay = 3000;
 function SlideShow(){
     const [index, setIndex] = useState(0);
     const timeoutRef = React.useRef(null);
