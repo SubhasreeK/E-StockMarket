@@ -17,12 +17,13 @@ const AddCompany =() =>{
         companycode : null,
         companyname : "",
         stockprice : null,
+        website: null,
+        turnover:null,
         minvalue : null,
         maxvalue : null,
         avgvalue : null
     }
-    const[startdate, setStartdate] = useState(null);
-    const[enddate, setEnddate] = useState(null);
+  
     const[newcomp, setNewcomp] = useState(initialCompanyState);
     const[submitted, setSubmitted] = useState(false);
     const handleInputChange = event =>{
@@ -35,8 +36,8 @@ const AddCompany =() =>{
             companycode : newcomp.companycode,
             companyname : newcomp.companyname,
             stockprice : newcomp.stockprice,
-            startdate : startdate,
-            enddate :  enddate,
+            website :   newcomp.website,
+            turnover :  newcomp.turnover,
             minvalue : newcomp.minvalue,
             maxvalue : newcomp.maxvalue,
             avgvalue : newcomp.avgvalue
@@ -49,9 +50,9 @@ const AddCompany =() =>{
             id : response.data.id,
             companycode : response.data.companycode,
             companyname : response.data.companyname,
-            stockprice : response.data.stockprice,
-            startdate : response.data.startdate,
-            enddate : response.data.enddate,
+            website : response.data.stockprice,
+            startdate : response.data.website,
+            turnover : response.data.turnover,
             minvalue : response.data.minvalue,
             maxvalue : response.data.maxvalue,
             avgvalue : response.data.avgvalue
@@ -82,60 +83,56 @@ const AddCompany =() =>{
                 <div className="container Logins">
                 <h3>Add Company</h3>
                
-                    <FormControl fullWidth variant='filled'>
+                    <FormControl  variant='outlined' >
                         <InputLabel htmlFor='companyname'>Company Name</InputLabel>
                             <Input required id="companyname" className='form-control' onChange={handleInputChange} name="companyname"
                             value={newcomp.companyname} />
                         <ErrorOutput case={newcomp.companyname} name={'companyname'}/>
-                    </FormControl>
+                    </FormControl> <br />
                    
-                    <FormControl fullWidth variant='filled'>
+                    <FormControl variant='outlined'>
                         <InputLabel htmlFor='companycode'>Company Code</InputLabel>
                         <Input required id="companycode" className='form-control' onChange={handleInputChange}
                         name="companycode" value={newcomp.companycode}/>
-                    </FormControl>
-                    <FormControl fullWidth variant='filled'>
+                    </FormControl> <br />
+                    <FormControl  variant='outlined'>
                         <InputLabel htmlFor='stockprice'>Stock Price</InputLabel>
                         <Input required id="stockprice" className='form-control' onChange={handleInputChange} pattern="[0-9]*"
                         name="stockprice" value={newcomp.stockprice} inputProps={{ maxLength :10}}/>
                         <ErrorOutput case={newcomp.stockprice} name={'stockprice'}/>
-                    </FormControl>
-                    <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <div className='formlable'>
-                    <DesktopDatePicker  required
-                        label="Start Date : "  value={startdate} minDate={new Date('2000-01-01')}
-                        maxDate={new Date('2100-01-01')}
-                        onChange={(newValue) => {setStartdate(newValue);}}
-                        renderInput={(params) => <TextField fullWidth variant='outlined' {...params} />}
-                    />
-                    </div>
-                    <div className='formlable'>
-                    <DesktopDatePicker required className='formlable'
-                        label="End Date : "  value={enddate} minDate={new Date()}
-                        maxDate={new Date('2100-01-01')}
-                        onChange={(newValue) => {setEnddate(newValue);}}
-                        renderInput={(params) => <TextField fullWidth variant='outlined' {...params} />}
-                    />
-                    </div>
-                    </LocalizationProvider>
-                    <FormControl fullWidth variant='filled'>
+                    </FormControl> <br />
+                    <FormControl  variant='outlined'>
+                        <InputLabel htmlFor='website'>Website</InputLabel>
+                        <Input required id="website" className='form-control' onChange={handleInputChange} 
+                        name="website" value={newcomp.website} inputProps={{ maxLength :50}}/>
+                        <ErrorOutput case={newcomp.website} name={'website'}/>
+                    </FormControl> <br />
+                    <FormControl  variant='outlined'>
+                        <InputLabel htmlFor='turnover'>Turnover</InputLabel>
+                        <Input required id="turnover" className='form-control' onChange={handleInputChange} pattern="[0-9]*"
+                        name="turnover" value={newcomp.turnover} inputProps={{ maxLength :10}}/>
+                        <ErrorOutput case={newcomp.turnover} name={'turnover'}/>
+                    </FormControl> <br />
+                    
+                   
+                    <FormControl  variant='outlined'>
                         <InputLabel htmlFor='minvalue'>Minimum Value</InputLabel>
                         <Input required id="minvalue" className='form-control' onChange={handleInputChange}
                         name="minvalue" value={newcomp.minvalue} inputProps={{ maxLength :10}}/>
                          <ErrorOutput case={newcomp.minvalue} name={'minvalue'}/>
-                    </FormControl>
-                    <FormControl fullWidth variant='filled'>
+                    </FormControl> <br />
+                    <FormControl  variant='outlined'>
                         <InputLabel htmlFor='maxvalue'>Maximum Value</InputLabel>
                         <Input required id="maxvalue" className='form-control' onChange={handleInputChange}
                         name="maxvalue" value={newcomp.maxvalue} inputProps={{ maxLength :10}}/>
                          <ErrorOutput case={newcomp.maxvalue} name={'maxvalue'}/>
-                    </FormControl>
-                    <FormControl fullWidth variant='filled'>
+                    </FormControl> <br />
+                    <FormControl  variant='outlined'>
                         <InputLabel htmlFor='avgvalue'>Average Value</InputLabel>
                         <Input required id="avgvalue" className='form-control' onChange={handleInputChange}
                         name="avgvalue" value={newcomp.avgvalue} inputProps={{ maxLength :10}}/>
                          <ErrorOutput case={newcomp.avgvalue} name={'avgvalue'}/>
-                    </FormControl>
+                    </FormControl> <br />
 
                 
                 <button type='submit' className="btn btn-success formbutton">Submit</button>

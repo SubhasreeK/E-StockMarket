@@ -1,10 +1,338 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AddCompany should render AddCompany Component 1`] = `
+Array [
+  <div
+    className="submit-form "
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="container Logins"
+      >
+        <h3>
+          Add Company
+        </h3>
+        <WithStyles(ForwardRef(FormControl))
+          fullWidth={true}
+          variant="filled"
+        >
+          <WithStyles(ForwardRef(InputLabel))
+            htmlFor="companyname"
+          >
+            Company Name
+          </WithStyles(ForwardRef(InputLabel))>
+          <WithStyles(ForwardRef(Input))
+            className="form-control"
+            id="companyname"
+            name="companyname"
+            onChange={[Function]}
+            required={true}
+            value=""
+          />
+          <ErrorOutput
+            case=""
+            name="companyname"
+          />
+        </WithStyles(ForwardRef(FormControl))>
+        <WithStyles(ForwardRef(FormControl))
+          fullWidth={true}
+          variant="filled"
+        >
+          <WithStyles(ForwardRef(InputLabel))
+            htmlFor="companycode"
+          >
+            Company Code
+          </WithStyles(ForwardRef(InputLabel))>
+          <WithStyles(ForwardRef(Input))
+            className="form-control"
+            id="companycode"
+            name="companycode"
+            onChange={[Function]}
+            required={true}
+            value={null}
+          />
+        </WithStyles(ForwardRef(FormControl))>
+        <WithStyles(ForwardRef(FormControl))
+          fullWidth={true}
+          variant="filled"
+        >
+          <WithStyles(ForwardRef(InputLabel))
+            htmlFor="stockprice"
+          >
+            Stock Price
+          </WithStyles(ForwardRef(InputLabel))>
+          <WithStyles(ForwardRef(Input))
+            className="form-control"
+            id="stockprice"
+            inputProps={
+              Object {
+                "maxLength": 10,
+              }
+            }
+            name="stockprice"
+            onChange={[Function]}
+            pattern="[0-9]*"
+            required={true}
+            value={null}
+          />
+          <ErrorOutput
+            case={null}
+            name="stockprice"
+          />
+        </WithStyles(ForwardRef(FormControl))>
+        <LocalizationProvider
+          dateAdapter={[Function]}
+        >
+          <div
+            className="formlable"
+          >
+            <ForwardRef(DesktopDatePicker)
+              label="Start Date : "
+              maxDate={2100-01-01T00:00:00.000Z}
+              minDate={2000-01-01T00:00:00.000Z}
+              onChange={[Function]}
+              renderInput={[Function]}
+              required={true}
+              value={null}
+            />
+          </div>
+          <div
+            className="formlable"
+          >
+            <ForwardRef(DesktopDatePicker)
+              className="formlable"
+              label="End Date : "
+              maxDate={2100-01-01T00:00:00.000Z}
+              minDate={2022-06-13T05:19:23.878Z}
+              onChange={[Function]}
+              renderInput={[Function]}
+              required={true}
+              value={null}
+            />
+          </div>
+        </LocalizationProvider>
+        <WithStyles(ForwardRef(FormControl))
+          fullWidth={true}
+          variant="filled"
+        >
+          <WithStyles(ForwardRef(InputLabel))
+            htmlFor="minvalue"
+          >
+            Minimum Value
+          </WithStyles(ForwardRef(InputLabel))>
+          <WithStyles(ForwardRef(Input))
+            className="form-control"
+            id="minvalue"
+            inputProps={
+              Object {
+                "maxLength": 10,
+              }
+            }
+            name="minvalue"
+            onChange={[Function]}
+            required={true}
+            value={null}
+          />
+          <ErrorOutput
+            case={null}
+            name="minvalue"
+          />
+        </WithStyles(ForwardRef(FormControl))>
+        <WithStyles(ForwardRef(FormControl))
+          fullWidth={true}
+          variant="filled"
+        >
+          <WithStyles(ForwardRef(InputLabel))
+            htmlFor="maxvalue"
+          >
+            Maximum Value
+          </WithStyles(ForwardRef(InputLabel))>
+          <WithStyles(ForwardRef(Input))
+            className="form-control"
+            id="maxvalue"
+            inputProps={
+              Object {
+                "maxLength": 10,
+              }
+            }
+            name="maxvalue"
+            onChange={[Function]}
+            required={true}
+            value={null}
+          />
+          <ErrorOutput
+            case={null}
+            name="maxvalue"
+          />
+        </WithStyles(ForwardRef(FormControl))>
+        <WithStyles(ForwardRef(FormControl))
+          fullWidth={true}
+          variant="filled"
+        >
+          <WithStyles(ForwardRef(InputLabel))
+            htmlFor="avgvalue"
+          >
+            Average Value
+          </WithStyles(ForwardRef(InputLabel))>
+          <WithStyles(ForwardRef(Input))
+            className="form-control"
+            id="avgvalue"
+            inputProps={
+              Object {
+                "maxLength": 10,
+              }
+            }
+            name="avgvalue"
+            onChange={[Function]}
+            required={true}
+            value={null}
+          />
+          <ErrorOutput
+            case={null}
+            name="avgvalue"
+          />
+        </WithStyles(ForwardRef(FormControl))>
+        <button
+          className="btn btn-success formbutton"
+          type="submit"
+        >
+          Submit
+        </button>
+        <button
+          className="btn btn-success formlable"
+          onClick={[Function]}
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>,
+]
+`;
+
 exports[`Home should render Home Component 1`] = `
 Array [
   <div>
     <div>
       <Navbars />
+    </div>
+  </div>,
+]
+`;
+
+exports[`ListCompany should render ListCompany Component 1`] = `
+Array [
+  <div
+    className="list row container"
+  >
+    <div
+      className="col-md-8"
+    >
+      <div
+        className="input-group mb-3 formlable"
+      >
+        <input
+          className="form-control"
+          onChange={[Function]}
+          placeholder="Search by CompanyName"
+          type="text"
+          value=""
+        />
+        <div
+          className="input-group-append"
+        >
+          <button
+            className="btn btn-outline-primary"
+            onClick={[Function]}
+            type="button"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-md-12 list"
+    >
+      <table
+        className="table table-striped table-bordered"
+        role="table"
+      >
+        <thead>
+          <tr
+            role="row"
+          >
+            <th
+              colSpan={1}
+              role="columnheader"
+            >
+              Company Name
+            </th>
+            <th
+              colSpan={1}
+              role="columnheader"
+            >
+              Company Code
+            </th>
+            <th
+              colSpan={1}
+              role="columnheader"
+            >
+              Stock Price
+            </th>
+            <th
+              colSpan={1}
+              role="columnheader"
+            >
+              Maxmium
+            </th>
+            <th
+              colSpan={1}
+              role="columnheader"
+            >
+              Minimum
+            </th>
+            <th
+              colSpan={1}
+              role="columnheader"
+            >
+              Average
+            </th>
+            <th
+              colSpan={1}
+              role="columnheader"
+            >
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          role="rowgroup"
+        />
+      </table>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Login should render Login Component 1`] = `
+Array [
+  <Context.Consumer>
+    [Function]
+  </Context.Consumer>,
+]
+`;
+
+exports[`ViewCompany should render ViewCompany Component 1`] = `
+Array [
+  <div>
+    <div>
+      <br />
+      <p>
+        Please click here..
+      </p>
     </div>
   </div>,
 ]

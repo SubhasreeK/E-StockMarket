@@ -9,7 +9,7 @@ const AutoLogoutTimer = (props: any) => {
     const history = useHistory()
 
     const handleOnIdle = (event: any) => {
-        // SHOW YOUR MODAL HERE AND LAGOUT
+        // SHOW YOUR MODAL HERE AND LOGOUT
         console.log('user is idle', event)
         console.log('last active', getLastActiveTime())
         history.push("/")

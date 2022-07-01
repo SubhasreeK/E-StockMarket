@@ -3,7 +3,7 @@ import {useParams, useHistory} from 'react-router-dom';
 import CompanyService from '../../services/ServiceCall';
 import axios from 'axios';
 const ViewCompany = props =>{
-    const url = 'http://localhost:8083/view';
+    const url = 'https://43.205.53.10:8012/view';
     //const {id} = useParams();
     let navigate = useHistory();
     const initialCompanyState = [{

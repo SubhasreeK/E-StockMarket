@@ -7,8 +7,11 @@ import {Router} from 'react-router-dom'
 import {createMemoryHistory} from 'history';
 import Adapter from 'enzyme-adapter-react-16';
 import Navbar from '../components/Navbar/NewNavbar';
-import AddCompany from '../components/pages/AddCompany';
+import Login from '../components/Login/Login';
 import Home from '../components/Home';
+import AddCompany from '../components/pages/AddCompany';
+import ListCompany from '../components/pages/ListCompany';
+import ViewCompany from '../components/pages/ViewCompany';
 import {App} from '../App';
 
 
@@ -26,9 +29,33 @@ test('full app rendering', async()=>{
     expect(screen.getElements(/NavBar/i)).toBeInTheDocument()
 
 })
+describe("Login",() => {
+    it("should render Login Component",()=>{
+        const wrapper = shallow(<Login/>);
+        expect(wrapper.getElements()).toMatchSnapshot();
+    });
+});
 describe("Home",() => {
     it("should render Home Component",()=>{
         const wrapper = shallow(<Home/>);
+        expect(wrapper.getElements()).toMatchSnapshot();
+    });
+});
+describe("AddCompany",() => {
+    it("should render AddCompany Component",()=>{
+        const wrapper = shallow(<AddCompany/>);
+        expect(wrapper.getElements()).toMatchSnapshot();
+    });
+});
+describe("ListCompany",() => {
+    it("should render ListCompany Component",()=>{
+        const wrapper = shallow(<ListCompany/>);
+        expect(wrapper.getElements()).toMatchSnapshot();
+    });
+});
+describe("ViewCompany",() => {
+    it("should render ViewCompany Component",()=>{
+        const wrapper = shallow(<ViewCompany/>);
         expect(wrapper.getElements()).toMatchSnapshot();
     });
 });

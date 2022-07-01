@@ -73,6 +73,7 @@ class Login extends Component {
         this.setState({
           loginStatus : 'Server Down'
         });
+        this.props.history.push('/home');
       })
   }
  

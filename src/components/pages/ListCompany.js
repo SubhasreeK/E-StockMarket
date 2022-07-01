@@ -8,8 +8,10 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import axios from 'axios';
  const ListCompany =(props)=>{
      let history = useHistory();
-    const url = 'http://localhost:8081/search';
-     const url1 = 'http://localhost:8082/list';
+     const url = 'https://43.205.53.10:8012/api/v1.0/market/company/info/ITC123';
+    const url1 = 'https://43.205.53.10:8012/api/v1.0/market/company/info/getall';
+    //const url = 'http://localhost:8081/search';
+    // const url1 = 'http://localhost:8082/list';
     const [companies,setCompanies] = useState([]);
     const [currentCompany,setCurrentCompany] = useState(null);
     const [currentIndex,setCurrentIndex] = useState(-1);
@@ -162,7 +164,7 @@ import axios from 'axios';
          </div>
 
          <div className='col-md-12 list'>
-            <table className='table table-striped table-bordered'
+            <table className='table table-striped table-bordered tableStyle'
             {...getTableProps()}>
                 <thead>
                     {headerGroups.map((headerGroup)=>(
