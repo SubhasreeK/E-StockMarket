@@ -8,8 +8,8 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import axios from 'axios';
  const ListCompany =(props)=>{
      let history = useHistory();
-     //const url = 'http://43.205.53.10:8000/api/v1.0/market/company/info/001';
-    //const url1 = 'http://43.205.53.10:8000/api/v1.0/market/company/info/getall';
+     //const url = 'http://65.2.90.227:8000/api/v1.0/market/company/info/001';
+    //const url1 = 'http://65.2.90.227:8000/api/v1.0/market/company/info/getall';
     //const url = 'http://localhost:8081/search';
     // const url1 = 'http://localhost:8082/list';
     const [companies,setCompanies] = useState([]);

@@ -3,7 +3,7 @@ import {useParams, useHistory, useLocation} from 'react-router-dom';
 import CompanyService from '../../services/ServiceCall';
 import axios from 'axios';
 const ViewCompany = props =>{
-    //const url = 'http://43.205.53.10:8012/api/v1.0/market/stock/add';
+    //const url = 'http://65.2.90.227:8012/api/v1.0/market/stock/add';
     const {id} = useParams();
     const location = useLocation();
     let navigate = useHistory();
@@ -42,7 +42,7 @@ const ViewCompany = props =>{
             price : currentCompany.price,
         }
         console.log(data);
-       axios.post(`http://43.205.53.10:8012/api/v1.0/market/stock/add/${currentCompany.companyCode}`,data)
+       axios.post(`http://65.2.90.227:8012/api/v1.0/market/stock/add/${currentCompany.companyCode}`,data)
         .then(response => {
             console.log(response.data);
             setMessage("Company has been Updated Sucsessfully!!")
