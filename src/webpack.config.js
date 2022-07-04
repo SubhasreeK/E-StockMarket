@@ -28,7 +28,7 @@ module.exports = {
     externals: {
         // global app config object
         config: JSON.stringify({
-            apiUrl: 'https://43.205.53.10'
+            apiUrl: 'http://localhost:8080'
         })
     },
     presets: [

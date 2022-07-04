@@ -1,24 +1,27 @@
 import React,{useState,useEffect} from "react";
-import {useParams, useHistory} from 'react-router-dom';
+import {useParams, useHistory, useLocation} from 'react-router-dom';
 import CompanyService from '../../services/ServiceCall';
 import axios from 'axios';
 const ViewCompany = props =>{
-    const url = 'https://43.205.53.10:8012/view';
-    //const {id} = useParams();
+    //const url = 'http://43.205.53.10:8012/api/v1.0/market/stock/add';
+    const {id} = useParams();
+    const location = useLocation();
     let navigate = useHistory();
     const initialCompanyState = [{
         id:null,
-        companyname:"",
-        companycode:"",
-        stockprice:null
+        companyName:"",
+        companyCode:"",
+        price:null
     }
     ];
     
     const [currentCompany, setCurrentCompany] = useState(null);
     const [message,setMessage] = useState("");
     const getCompany = () =>{
-        //CompanyService.get(id)
-        axios.get(url)
+        
+         console.log("View - "+location.state.detail);
+         const id = location.state.detail;
+       CompanyService.get(id)
         .then(response => {
             setCurrentCompany(response.data);
             console.log({currentCompany});
@@ -35,7 +38,11 @@ const ViewCompany = props =>{
         setCurrentCompany({...currentCompany,[name]:value});
     }
     const updateCompany= () =>{
-        CompanyService.update(currentCompany.companycode,currentCompany)
+        var data ={
+            price : currentCompany.price,
+        }
+        console.log(data);
+       axios.post(`http://43.205.53.10:8012/api/v1.0/market/stock/add/${currentCompany.companyCode}`,data)
         .then(response => {
             console.log(response.data);
             setMessage("Company has been Updated Sucsessfully!!")
@@ -56,53 +63,30 @@ const ViewCompany = props =>{
                     <form>
                        
                         <div className="form-group">
-                            <label htmlFor="companyname">Company Name</label>
+                            <label htmlFor="companyName">Company Name</label>
                             <input
-                            type="text"
+                            type="text" disabled
                             className="form-control"
-                            id="companyname" name="companyname" value={currentCompany.companyname} 
+                            id="companyName" name="companyName" value={currentCompany.companyName} 
                             onChange={handleInputChange}></input>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="companycode">Company Code</label>
+                            <label htmlFor="companyCode">Company Code</label>
                             <input
-                            type="text"
-                            className="form-control"
-                            id="companycode" name="companycode" value={currentCompany.companycode} 
+                            type="text" disabled
+                            className="form-control" 
+                            id="companyCode" name="companyCode" value={currentCompany.companyCode} 
                             onChange={handleInputChange}></input>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="stockprice">Stock Price</label>
+                            <label htmlFor="price">Stock Price</label>
                             <input
                             type="text"
                             className="form-control"
-                            id="stockprice" name="stockprice" value={currentCompany.stockprice} 
+                            id="price" name="price" value={currentCompany.price} 
                             onChange={handleInputChange}></input>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="minvalue">Minimum Value</label>
-                            <input
-                            type="text"
-                            className="form-control"
-                            id="minvalue" name="minvalue" value={currentCompany.minvalue} 
-                            onChange={handleInputChange}></input>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="maxvalue">Maxmium Value</label>
-                            <input
-                            type="text"
-                            className="form-control"
-                            id="maxvalue" name="maxvalue" value={currentCompany.maxvalue} 
-                            onChange={handleInputChange}></input>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="avgvalue">Average Value</label>
-                            <input
-                            type="text"
-                            className="form-control"
-                            id="avgvalue" name="avgvalue" value={currentCompany.avgvalue} 
-                            onChange={handleInputChange}></input>
-                        </div>
+                     
                     </form>
                     <button type="submit" className="btn btn-success formbutton" onClick={updateCompany}>Update</button>
                     <button className="btn btn-warning formlable" onClick={cancelCompany}>Back</button>

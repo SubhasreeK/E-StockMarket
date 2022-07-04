@@ -1,7 +1,7 @@
 import http from '../http-common';
 
 const getAll = () =>{
-    return http.get("/api/v1.0/market/company/getall");
+    return http.get("/api/v1.0/market/company/info/getall");
 };
 const get = companycode =>{
     return http.get(`/api/v1.0/market/company/info/${companycode}`);

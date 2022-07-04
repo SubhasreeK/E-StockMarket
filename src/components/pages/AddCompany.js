@@ -7,57 +7,53 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import {TextField,FormControl,InputLabel,Input} from '@material-ui/core';
 import CompanyService from '../../services/ServiceCall';
 import ErrorOutput from './FormValidation';
-
-const AddCompany =() =>{
+const AddCompany = () =>{
     let navigate = useHistory();
     const {handleSubmit} = useForm();
 
     const initialCompanyState = {
         id: null,
-        companycode : null,
-        companyname : "",
-        stockprice : null,
+        companyCode : null,
+        companyName : "",
+        price : null,
         website: null,
         turnover:null,
-        minvalue : null,
-        maxvalue : null,
-        avgvalue : null
+        minPrice : null,
+        maxPrice : null,
+        avg : null,
+        stockExchangeListed : null
     }
   
     const[newcomp, setNewcomp] = useState(initialCompanyState);
     const[submitted, setSubmitted] = useState(false);
     const handleInputChange = event =>{
-        console.log("Handle Inputs : "+event.target);
         const {name,value}= event.target ;
         setNewcomp({...newcomp,[name]:value});
     };
     const saveCompany =()=>{
         var data ={
-            companycode : newcomp.companycode,
-            companyname : newcomp.companyname,
-            stockprice : newcomp.stockprice,
+            companyCode : newcomp.companyCode,
+            companyCEO :  newcomp.companyCEO,
+            companyName : newcomp.companyName,
+            price : newcomp.price,
             website :   newcomp.website,
             turnover :  newcomp.turnover,
-            minvalue : newcomp.minvalue,
-            maxvalue : newcomp.maxvalue,
-            avgvalue : newcomp.avgvalue
+            minPrice : newcomp.minPrice,
+            maxPrice : newcomp.maxPrice,
+            avg : newcomp.avg,
+            stockExchangeListed : 'true'
         };
      
         console.log(JSON.stringify(data, null, 2));
     CompanyService.create(data)
     .then(response =>{
-        setNewcomp({
-            id : response.data.id,
-            companycode : response.data.companycode,
-            companyname : response.data.companyname,
-            website : response.data.stockprice,
-            startdate : response.data.website,
-            turnover : response.data.turnover,
-            minvalue : response.data.minvalue,
-            maxvalue : response.data.maxvalue,
-            avgvalue : response.data.avgvalue
-        });
-        setSubmitted(true);
+        if(response.status === 200){
+            console.log("SUCCESSS")
+            setSubmitted(true);
+        }else if(response.status === 408){
+            console.log("SOMETHING WENT WRONG")
+            setSubmitted(false)
+        }
         console.log(response.data);
     })
     .catch(e => {
@@ -84,22 +80,29 @@ const AddCompany =() =>{
                 <h3>Add Company</h3>
                
                     <FormControl  variant='outlined' >
-                        <InputLabel htmlFor='companyname'>Company Name</InputLabel>
-                            <Input required id="companyname" className='form-control' onChange={handleInputChange} name="companyname"
-                            value={newcomp.companyname} />
-                        <ErrorOutput case={newcomp.companyname} name={'companyname'}/>
+                        <InputLabel htmlFor='companyName'>Company Name</InputLabel>
+                            <Input required id="companyName" className='form-control' onChange={handleInputChange} name="companyName"
+                            value={newcomp.companyName} />
+                        <ErrorOutput case={newcomp.companyName} name={'companyName'}/>
+                    </FormControl> <br />
+
+                    <FormControl  variant='outlined' >
+                        <InputLabel htmlFor='companyCEO'>Company CEO</InputLabel>
+                            <Input required id="companyCEO" className='form-control' onChange={handleInputChange} name="companyCEO"
+                            value={newcomp.companyCEO} />
+                        <ErrorOutput case={newcomp.companyCEO} name={'companyCEO'}/>
                     </FormControl> <br />
                    
                     <FormControl variant='outlined'>
-                        <InputLabel htmlFor='companycode'>Company Code</InputLabel>
-                        <Input required id="companycode" className='form-control' onChange={handleInputChange}
-                        name="companycode" value={newcomp.companycode}/>
+                        <InputLabel htmlFor='companyCode'>Company Code</InputLabel>
+                        <Input required id="companyCode" className='form-control' onChange={handleInputChange}
+                        name="companyCode" value={newcomp.companyCode}/>
                     </FormControl> <br />
                     <FormControl  variant='outlined'>
-                        <InputLabel htmlFor='stockprice'>Stock Price</InputLabel>
-                        <Input required id="stockprice" className='form-control' onChange={handleInputChange} pattern="[0-9]*"
-                        name="stockprice" value={newcomp.stockprice} inputProps={{ maxLength :10}}/>
-                        <ErrorOutput case={newcomp.stockprice} name={'stockprice'}/>
+                        <InputLabel htmlFor='price'>Stock Price</InputLabel>
+                        <Input required id="price" className='form-control' onChange={handleInputChange} pattern="[0-9]*"
+                        name="price" value={newcomp.price} inputProps={{ maxLength :10}}/>
+                        <ErrorOutput case={newcomp.price} name={'price'}/>
                     </FormControl> <br />
                     <FormControl  variant='outlined'>
                         <InputLabel htmlFor='website'>Website</InputLabel>
@@ -116,22 +119,22 @@ const AddCompany =() =>{
                     
                    
                     <FormControl  variant='outlined'>
-                        <InputLabel htmlFor='minvalue'>Minimum Value</InputLabel>
-                        <Input required id="minvalue" className='form-control' onChange={handleInputChange}
-                        name="minvalue" value={newcomp.minvalue} inputProps={{ maxLength :10}}/>
-                         <ErrorOutput case={newcomp.minvalue} name={'minvalue'}/>
+                        <InputLabel htmlFor='minPrice'>Minimum Value</InputLabel>
+                        <Input required id="minPrice" className='form-control' onChange={handleInputChange}
+                        name="minPrice" value={newcomp.minPrice} inputProps={{ maxLength :10}}/>
+                         <ErrorOutput case={newcomp.minPrice} name={'minPrice'}/>
                     </FormControl> <br />
                     <FormControl  variant='outlined'>
-                        <InputLabel htmlFor='maxvalue'>Maximum Value</InputLabel>
-                        <Input required id="maxvalue" className='form-control' onChange={handleInputChange}
-                        name="maxvalue" value={newcomp.maxvalue} inputProps={{ maxLength :10}}/>
-                         <ErrorOutput case={newcomp.maxvalue} name={'maxvalue'}/>
+                        <InputLabel htmlFor='maxPrice'>Maximum Value</InputLabel>
+                        <Input required id="maxPrice" className='form-control' onChange={handleInputChange}
+                        name="maxPrice" value={newcomp.maxPrice} inputProps={{ maxLength :10}}/>
+                         <ErrorOutput case={newcomp.maxPrice} name={'maxPrice'}/>
                     </FormControl> <br />
                     <FormControl  variant='outlined'>
-                        <InputLabel htmlFor='avgvalue'>Average Value</InputLabel>
-                        <Input required id="avgvalue" className='form-control' onChange={handleInputChange}
-                        name="avgvalue" value={newcomp.avgvalue} inputProps={{ maxLength :10}}/>
-                         <ErrorOutput case={newcomp.avgvalue} name={'avgvalue'}/>
+                        <InputLabel htmlFor='avg'>Average Value</InputLabel>
+                        <Input required id="avg" className='form-control' onChange={handleInputChange}
+                        name="avg" value={newcomp.avg} inputProps={{ maxLength :10}}/>
+                         <ErrorOutput case={newcomp.avg} name={'avg'}/>
                     </FormControl> <br />
 
                 
