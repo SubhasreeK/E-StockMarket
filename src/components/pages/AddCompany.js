@@ -99,44 +99,24 @@ const AddCompany = () =>{
                         name="companyCode" value={newcomp.companyCode}/>
                     </FormControl> <br />
                     <FormControl  variant='outlined'>
-                        <InputLabel htmlFor='price'>Stock Price</InputLabel>
-                        <Input required id="price" className='form-control' onChange={handleInputChange} pattern="[0-9]*"
-                        name="price" value={newcomp.price} inputProps={{ maxLength :10}}/>
-                        <ErrorOutput case={newcomp.price} name={'price'}/>
-                    </FormControl> <br />
-                    <FormControl  variant='outlined'>
                         <InputLabel htmlFor='website'>Website</InputLabel>
                         <Input required id="website" className='form-control' onChange={handleInputChange} 
                         name="website" value={newcomp.website} inputProps={{ maxLength :50}}/>
                         <ErrorOutput case={newcomp.website} name={'website'}/>
                     </FormControl> <br />
                     <FormControl  variant='outlined'>
-                        <InputLabel htmlFor='turnover'>Turnover</InputLabel>
+                        <InputLabel htmlFor='turnover'>Stock Price</InputLabel>
                         <Input required id="turnover" className='form-control' onChange={handleInputChange} pattern="[0-9]*"
                         name="turnover" value={newcomp.turnover} inputProps={{ maxLength :10}}/>
                         <ErrorOutput case={newcomp.turnover} name={'turnover'}/>
                     </FormControl> <br />
-                    
+                    <FormControl  variant='outlined'>
+                        <InputLabel htmlFor='price'>Turnover</InputLabel>
+                        <Input required id="price" className='form-control' onChange={handleInputChange} pattern="[0-9]*"
+                        name="price" value={newcomp.price} inputProps={{ maxLength :10}}/>
+                        <ErrorOutput case={newcomp.price} name={'price'}/>
+                    </FormControl> <br />
                    
-                    <FormControl  variant='outlined'>
-                        <InputLabel htmlFor='minPrice'>Minimum Value</InputLabel>
-                        <Input required id="minPrice" className='form-control' onChange={handleInputChange}
-                        name="minPrice" value={newcomp.minPrice} inputProps={{ maxLength :10}}/>
-                         <ErrorOutput case={newcomp.minPrice} name={'minPrice'}/>
-                    </FormControl> <br />
-                    <FormControl  variant='outlined'>
-                        <InputLabel htmlFor='maxPrice'>Maximum Value</InputLabel>
-                        <Input required id="maxPrice" className='form-control' onChange={handleInputChange}
-                        name="maxPrice" value={newcomp.maxPrice} inputProps={{ maxLength :10}}/>
-                         <ErrorOutput case={newcomp.maxPrice} name={'maxPrice'}/>
-                    </FormControl> <br />
-                    <FormControl  variant='outlined'>
-                        <InputLabel htmlFor='avg'>Average Value</InputLabel>
-                        <Input required id="avg" className='form-control' onChange={handleInputChange}
-                        name="avg" value={newcomp.avg} inputProps={{ maxLength :10}}/>
-                         <ErrorOutput case={newcomp.avg} name={'avg'}/>
-                    </FormControl> <br />
-
                 
                 <button type='submit' className="btn btn-success formbutton">Submit</button>
                 <button onClick={cancelCompany} className="btn btn-success formlable">Cancel</button>

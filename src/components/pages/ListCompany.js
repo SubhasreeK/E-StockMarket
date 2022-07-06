@@ -120,8 +120,28 @@ import axios from 'axios';
             accessor : "companyCEO"
         },
         {
-            Header : "Turn Over",
+            Header : "Website",
+            accessor : "website"
+        },
+        {
+            Header : "StockPrice",
             accessor : "turnover"
+        },
+        {
+            Header : "Turnover($M)",
+            accessor : "price"
+        },
+        {
+            Header : "Minimum($M)",
+            accessor : "maxPrice"
+        },
+        {
+            Header : "Maximum($M)",
+            accessor : "minPrice"
+        },
+        {
+            Header : "Average($M)",
+            accessor : "avg"
         },
         {
             Header: "Actions",

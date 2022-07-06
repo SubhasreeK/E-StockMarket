@@ -35,11 +35,12 @@ const ViewCompany = props =>{
     },[]);
     const handleInputChange = event =>{
         const {name,value} = event.target;
+        console.log(event.target);
         setCurrentCompany({...currentCompany,[name]:value});
     }
     const updateCompany= () =>{
         var data ={
-            price : currentCompany.price,
+            price : currentCompany.turnover,
         }
         console.log(data);
        axios.post(`http://65.2.90.227:8012/api/v1.0/market/stock/add/${currentCompany.companyCode}`,data)
@@ -83,7 +84,7 @@ const ViewCompany = props =>{
                             <input
                             type="text"
                             className="form-control"
-                            id="price" name="price" value={currentCompany.price} 
+                            id="price" name="turnover" value={currentCompany.turnover} 
                             onChange={handleInputChange}></input>
                         </div>
                      
@@ -95,7 +96,7 @@ const ViewCompany = props =>{
             ):(
                 <div>
                     <br/>
-                    <p>Please click here..</p>
+                    <p color="red">Somethin went wrong ., Please check whether server is up and running..</p>
                 </div>
             )}
         </div>
