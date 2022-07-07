@@ -26,6 +26,8 @@ const AddCompany = () =>{
   
     const[newcomp, setNewcomp] = useState(initialCompanyState);
     const[submitted, setSubmitted] = useState(false);
+    const[startdate, setStartdate] = useState(null);
+    const[enddate, setEnddate] = useState(null);
     const handleInputChange = event =>{
         const {name,value}= event.target ;
         setNewcomp({...newcomp,[name]:value});
@@ -110,14 +112,32 @@ const AddCompany = () =>{
                         name="turnover" value={newcomp.turnover} inputProps={{ maxLength :10}}/>
                         <ErrorOutput case={newcomp.turnover} name={'turnover'}/>
                     </FormControl> <br />
+                    
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                    <div className='formlable'>
+                    <DesktopDatePicker  required
+                        label="Start Date : "  value={startdate} minDate={new Date('2000-01-01')}
+                        maxDate={new Date('2100-01-01')}
+                        onChange={(newValue) => {setStartdate(newValue);}}
+                        renderInput={(params) => <TextField variant='standard' {...params} />}
+                    />
+                    </div>
+                    <div className='formlable'>
+                    <DesktopDatePicker required className='formlable'
+                        label="End Date : "  value={enddate} minDate={new Date()}
+                        maxDate={new Date('2100-01-01')}
+                        onChange={(newValue) => {setEnddate(newValue);}}
+                        renderInput={(params) => <TextField variant='standard' {...params} />}
+                    />
+                    </div>
+                    </LocalizationProvider>
+                   
                     <FormControl  variant='outlined'>
                         <InputLabel htmlFor='price'>Turnover</InputLabel>
                         <Input required id="price" className='form-control' onChange={handleInputChange} pattern="[0-9]*"
                         name="price" value={newcomp.price} inputProps={{ maxLength :10}}/>
                         <ErrorOutput case={newcomp.price} name={'price'}/>
                     </FormControl> <br />
-                   
-                
                 <button type='submit' className="btn btn-success formbutton">Submit</button>
                 <button onClick={cancelCompany} className="btn btn-success formlable">Cancel</button>
             </div>

@@ -2,10 +2,9 @@ import React , {useState,useEffect,useRef,useMemo} from 'react';
 import {useTable} from 'react-table';
 import {useHistory} from 'react-router-dom';
 import CompanyService from '../../services/ServiceCall';
-import {Row,Col} from 'react-bootstrap';
 import {confirmAlert} from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import axios from 'axios';
+//import axios from 'axios';
  const ListCompany =(props)=>{
      let history = useHistory();
      //const url = 'http://65.2.90.227:8000/api/v1.0/market/company/info/001';
@@ -57,7 +56,8 @@ import axios from 'axios';
             setCompanies(resArr);
         })
         .catch(e => {
-            console.log(e);
+            console.log("Check "+e);
+            refreshList();
         });
     };
     const openCompany = (rowIndex) => {
