@@ -89,7 +89,7 @@ class Login extends Component {
            break;
       case  'password':
           passwordValid = value.length>= 6;
-          fieldValidErrors.password = passwordValid ?'':'Enter atleast 6 character';
+          fieldValidErrors.password = passwordValid ?'':'Enter correct password';
           break;
       default :
         break;
