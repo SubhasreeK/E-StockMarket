@@ -5,7 +5,7 @@ const config:PlaywrightTestConfig ={
     testDir: 'lighthouse',
     timeout: 5 * 60 * 1000,
     use:{
-        baseURL: process.env.CI_ENVIRONMENT_URL || 'http://localhost:3000',
+        baseURL: process.env.CI_ENVIRONMENT_URL || 'https://web.dev',
         headless:true,
         channel:"chrome",
     }
