@@ -20,8 +20,13 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v3
-      if: always()
       with:
         name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+        path: |
+          dist
+          !dist/**/*.md
+    -name: Archive code performance result
+     uses: actions/upload-artifact@v3
+     with:
+       name: userflow-report
+       path: output/test/user-report.html
