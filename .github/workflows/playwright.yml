@@ -25,7 +25,6 @@ jobs:
         path: |
           dist
           !dist/**/*.md
-    - name: Archive code performance result
     - uses: actions/upload-artifact@v3
       with:
         name: userflow-report
