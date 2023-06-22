@@ -26,7 +26,7 @@ jobs:
           dist
           !dist/**/*.md
     -name: Archive code performance result
-     uses: actions/upload-artifact@v3
+    -uses: actions/upload-artifact@v3
      with:
        name: userflow-report
        path: output/test/user-report.html
