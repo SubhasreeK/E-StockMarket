@@ -28,4 +28,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: userflow-report
-        path: output/test/user-report.html
+        path: E-StockMarket/lighthouseReport/user-report.html
