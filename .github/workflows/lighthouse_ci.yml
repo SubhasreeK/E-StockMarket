@@ -16,5 +16,4 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: run Lighthouse CI
-      run: npm install -g @lhci/cli@0.3.x
-           lhci autorun --upload.target=temporary-public-storage || echo "LHCI failed!"
+      run: npm run audit
