@@ -18,7 +18,7 @@ module.exports = {
             url: ['https://pptr.dev/']
         },
         upload: {
-            target: 'filesystem',
+            target: 'temporary-public-storage',
             outputDir: './lhci_reports',
             reportFilenamePattern: 'LighthousePrefReport-%%DATETIME%%-report.%%EXTENSION%%'
             // token: '',
